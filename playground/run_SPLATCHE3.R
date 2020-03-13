@@ -1,6 +1,21 @@
 exe <- "~/SPLATCHE3-Linux-64b"
 
-test <- list(
+SPLATCHE3_PopDensity <- tibble::tribble(
+  ~Pop_name, ~pop_size, ~Lat, ~Long, ~ResizeA, ~Time_ResizeB, ~ResizeB, ~MigrationFromCurrentSource, ~NoLayer, ~TimeOfExpansion,
+  "source1", 100, 10, 40, 0, 0, 0, 0, 0, 0
+)
+
+SPLATCHE3_PopDensity <- tibble::new_tibble(SPLATCHE3_PopDensity, nrow = nrow(SPLATCHE3_PopDensity), class = "SPLATCHE3_PopDensity")
+
+f <- raster::raster(system.file("external/rlogo.grd", package="raster"))
+
+raster::ncol(f)
+raster::nrow(f)
+raster::xyFromCell(f, raster::ncell(f) - raster::ncol(f) + 1)
+raster::res(f)
+NODATA_value
+
+SPLATCHE3_settings <- list(
   PopDensityFile = "./datasets_1layer-ver3/dens_init.txt",
   PresVegetationFile = "./datasets_1layer-ver3/ppveg.asc",
   HydroFile = "./datasets_1layer-ver3/rivers.asc",
@@ -46,6 +61,6 @@ test <- list(
   AllowShortIntForNumberOfIndividuals = 1
 )
 
-class(test) <- "SPLATCHE3_settings"
+class(SPLATCHE3_settings) <- "SPLATCHE3_settings"
 
-write_settings(test, "test.txt")
+write_settings(SPLATCHE3_settings, "test.txt")
