@@ -8,66 +8,86 @@ PopDensity <- tibble::tribble(
 PopDensity <- tibble::new_tibble(PopDensity, nrow = nrow(PopDensity), class = "SPLATCHE3_PopDensity")
 
 #### raster ####
-raster_f <- raster::raster(system.file("external/rlogo.grd", package = "raster"))
-
-#### SPLATCHE3_Veg2dyn ####
-Veg2Kdyn <- tibble::tribble(
-  
-)
-Veg2Kdyn <- tibble::new_tibble(Veg2Kdyn, nrow = nrow(Veg2Kdyn), class = "SPLATCHE3_Veg2dyn")
-
-Veg2Fdyn <- tibble::tribble(
-  
-)
-Veg2Fdyn <- tibble::new_tibble(Veg2Kdyn, nrow = nrow(Veg2Kdyn), class = "SPLATCHE3_Veg2dyn")
-
-Veg2mdyn <- tibble::tribble(
-  
-)
-Veg2mdyn <- tibble::new_tibble(Veg2mdyn, nrow = nrow(Veg2mdyn), class = "SPLATCHE3_Veg2dyn")
+PresVegetation <- Hydro <- RoughnessTopo <- mMap <- raster::raster(system.file("external/rlogo.grd", package = "raster"))
 
 #### SPLATCHE3_Veg2phase ####
 Veg2Kphase <- tibble::tribble(
-  
+  ~category, ~value, ~description,
+  1,	100,	"Tropical rainforest",
+  2,	100,	"Monsoon or dry forest",
+  3,	100,	"Tropical woodland"
 )
 Veg2Kphase <- tibble::new_tibble(Veg2Kphase, nrow = nrow(Veg2Kphase), class = "SPLATCHE3_Veg2phase")
 
 Veg2Fphase <- tibble::tribble(
-  
+  ~category, ~value, ~description,
+  1,	0.8,	"Tropical rainforest",
+  2,	0.8,	"Monsoon or dry forest",
+  3,	0.8,	"Tropical woodland"
 )
 Veg2Fphase <- tibble::new_tibble(Veg2Kphase, nrow = nrow(Veg2Kphase), class = "SPLATCHE3_Veg2phase")
 
+#### SPLATCHE3_Veg2mphase ####
+
 Veg2mphase <- tibble::tribble(
-  
+  ~category, ~north, ~east, ~south, ~west, ~description,
+  1,	0.03,	0.03,	0.03,	0.03,	"Tropical rainforest",
+  2,	0.03,	0.03,	0.03,	0.03,	"Monsoon or dry forest",
+  3,	0.03,	0.03,	0.03,	0.03,	"Tropical woodland"
 )
-Veg2mphase <- tibble::new_tibble(Veg2mphase, nrow = nrow(Veg2mphase), class = "SPLATCHE3_Veg2phase")
+Veg2mphase <- tibble::new_tibble(Veg2mphase, nrow = nrow(Veg2mphase), class = "SPLATCHE3_Veg2mphase")
+
+#### SPLATCHE3_Veg2dyn ####
+Veg2Kdyn <- tibble::tribble(
+  ~time_of_change, ~file_name_corresponding_table, ~description,
+  1, "./datasets_1layer-ver3/veg2K_pop1_time_1.txt", "Time1",
+  200, "./datasets_1layer-ver3/veg2K_pop1_time_2.txt", "Time2"
+)
+Veg2Kdyn <- tibble::new_tibble(Veg2Kdyn, nrow = nrow(Veg2Kdyn), class = "SPLATCHE3_Veg2dyn")
+
+Veg2Fdyn <- tibble::tribble(
+  ~time_of_change, ~file_name_corresponding_table, ~description,
+  1, "./datasets_1layer-ver3/veg2F_pop1_time_1.txt", "Time1",
+  200, "./datasets_1layer-ver3/veg2F_pop1_time_2.txt", "Time2"
+)
+Veg2Fdyn <- tibble::new_tibble(Veg2Kdyn, nrow = nrow(Veg2Kdyn), class = "SPLATCHE3_Veg2dyn")
+
+Veg2mdyn <- tibble::tribble(
+  ~time_of_change, ~file_name_corresponding_table, ~description,
+  1, "./datasets_1layer-ver3/veg2m_pop1_time_1.txt", "Time1",
+  200, "./datasets_1layer-ver3/veg2m_pop1_time_2.txt", "Time2"
+)
+Veg2mdyn <- tibble::new_tibble(Veg2mdyn, nrow = nrow(Veg2mdyn), class = "SPLATCHE3_Veg2dyn")
 
 #### SPLATCHE3_ArrivalCell ####
 ArrivalCell <- tibble::tribble(
-  
+  ~PopName, ~Layer, ~Lat, ~Lon,
+  "samp1", 0, 12, 3,
+  "samp2", 0, 33, 8,
+  "samp3", 0, 14, 30
 )
-Veg2mphase <- tibble::new_tibble(ArrivalCell, nrow = nrow(ArrivalCell), class = "SPLATCHE3_ArrivalCell")
+ArrivalCell <- tibble::new_tibble(ArrivalCell, nrow = nrow(ArrivalCell), class = "SPLATCHE3_ArrivalCell")
 
 #### SPLATCHE3_Sample ####
 Sample <- tibble::tribble(
-  
+  ~Name, ~Size, ~Layer, ~Lat, ~Lon,
+  "sample1", 30, 0,	20, 20,
+  "sample2", 30, 0,	20, 0,
+  "sample3", 30, 0,	0, 20,
+  "sample4", 30, 0, -20, 20,
+  "sample5", 30, 0,	-30, 25,
+  "sample6", 30, 0,	5, 40
 )
 Veg2mphase <- tibble::new_tibble(Sample, nrow = nrow(Sample), class = "SPLATCHE3_Sample")
 
-#### SPLATCHE3_Genetic ####
-Genetic <- tibble::tribble(
-  
-)
-Veg2mphase <- tibble::new_tibble(Genetic, nrow = nrow(Genetic), class = "SPLATCHE3_Genetic")
 
 
-  
 SPLATCHE3_settings <- list(
   PopDensityFile = PopDensity,# "./datasets_1layer-ver3/dens_init.txt",
-  PresVegetationFile = raster_f,#"./datasets_1layer-ver3/ppveg.asc",
-  HydroFile = raster_f,#"./datasets_1layer-ver3/rivers.asc",
-  RoughnessTopoFile = raster_f,#"./datasets_1layer-ver3/roughness.asc",
-  mMapFile = raster_f,#"./datasets_1layer-ver3/ppveg.asc",
+  PresVegetationFile = PresVegetation,#"./datasets_1layer-ver3/ppveg.asc",
+  HydroFile = Hydro,#"./datasets_1layer-ver3/rivers.asc",
+  RoughnessTopoFile = RoughnessTopo,#"./datasets_1layer-ver3/roughness.asc",
+  mMapFile = mMap,#"./datasets_1layer-ver3/ppveg.asc",
   Veg2KFile = Veg2Kdyn,#"./datasets_1layer-ver3/dynamic_K.txt",
   Veg2FFile = Veg2Fdyn,#"./datasets_1layer-ver3/dynamic_F.txt",
   Veg2mFile = Veg2mdyn,#"./datasets_1layer-ver3/dynamic_m.txt",
@@ -91,7 +111,7 @@ SPLATCHE3_settings <- list(
   CoastFrictionChangeFactor = 0.5,
   CoastCarCapChangeFactor = 2,
   SampleFile = Sample,#"./datasets_1layer-ver3/GeneSamples.sam",
-  GeneticFile = Genetic,#"./datasets_1layer-ver3/genetic_data_SEQ.par",
+  GeneticFile = "./datasets_1layer-ver3/genetic_data_SEQ.par",
   NumGeneticSimulations = 1,
   GenotypicData = 1,
   MaxNumGenerations = 10000,
