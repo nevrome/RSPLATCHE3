@@ -26,7 +26,15 @@ write_settings.default <- function(x, con = tempfile(), ...) {
 #' @export
 write_settings.SPLATCHE3_settings <- function(x, con = tempfile(), ...) {
   
-  x_string_vector <- purrr::map2_chr(names(x), x, function(x, y) {
+  x_files_outsourced <- purrr::map(x, function(y) {
+    if (inherits(y, "RasterBrick") || inherits(y, "RasterStack") || inherits(y, "RasterLayer")) {
+      write_raster(y)
+    } else {
+      y
+    }
+  })
+  
+  x_string_vector <- purrr::map2_chr(names(x_files_outsourced), x_files_outsourced, function(x, y) {
     paste0(x, "=", y)
   })
   
@@ -36,4 +44,10 @@ write_settings.SPLATCHE3_settings <- function(x, con = tempfile(), ...) {
     sep = "\n"
   )
   
+}
+
+write_raster <- function(x) {
+  outfile <- tempfile()
+  raster::writeRaster(x, outfile, "ascii")
+  return(outfile)
 }

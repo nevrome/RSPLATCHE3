@@ -9,16 +9,10 @@ SPLATCHE3_PopDensity <- tibble::new_tibble(SPLATCHE3_PopDensity, nrow = nrow(SPL
 
 f <- raster::raster(system.file("external/rlogo.grd", package="raster"))
 
-raster::ncol(f)
-raster::nrow(f)
-raster::xyFromCell(f, raster::ncell(f) - raster::ncol(f) + 1)
-raster::res(f)
-NODATA_value
-
 SPLATCHE3_settings <- list(
-  PopDensityFile = "./datasets_1layer-ver3/dens_init.txt",
-  PresVegetationFile = "./datasets_1layer-ver3/ppveg.asc",
-  HydroFile = "./datasets_1layer-ver3/rivers.asc",
+  PopDensityFile = f,# "./datasets_1layer-ver3/dens_init.txt",
+  PresVegetationFile = f,#"./datasets_1layer-ver3/ppveg.asc",
+  HydroFile = f,#"./datasets_1layer-ver3/rivers.asc",
   RoughnessTopoFile = "./datasets_1layer-ver3/roughness.asc",
   mMapFile = "./datasets_1layer-ver3/ppveg.asc",
   Veg2KFile = "./datasets_1layer-ver3/dynamic_K.txt",
