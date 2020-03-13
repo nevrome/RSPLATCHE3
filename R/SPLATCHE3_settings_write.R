@@ -27,8 +27,11 @@ write_settings.default <- function(x, con = tempfile(), ...) {
 write_settings.SPLATCHE3_settings <- function(x, con = tempfile(), ...) {
   
   x_files_outsourced <- purrr::map(x, function(y) {
+    message(y)
     if (inherits(y, "RasterBrick") || inherits(y, "RasterStack") || inherits(y, "RasterLayer")) {
       write_raster(y)
+    } else if ("SPLATCHE3_PopDensity" %in% class(y)) {
+      write_SPLATCHE3_PopDensity(y)
     } else {
       y
     }
@@ -49,5 +52,15 @@ write_settings.SPLATCHE3_settings <- function(x, con = tempfile(), ...) {
 write_raster <- function(x) {
   outfile <- tempfile()
   raster::writeRaster(x, outfile, "ascii")
+  return(outfile)
+}
+
+write_SPLATCHE3_PopDensity <- function(x) {
+  outfile <- tempfile()
+  writeLines(as.character(nrow(x)), outfile)
+  x_character <- purrr::map_chr(
+    as.list(as.data.frame(t(x))), function(y) { paste(as.character(y), collapse = "\t") }
+  )
+  writeLines(x_character, outfile)
   return(outfile)
 }

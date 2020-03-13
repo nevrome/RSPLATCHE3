@@ -3,7 +3,8 @@ exe <- "~/SPLATCHE3-Linux-64b"
 #### SPLATCHE3_PopDensity ####
 PopDensity <- tibble::tribble(
   ~Pop_name, ~pop_size, ~Lat, ~Long, ~ResizeA, ~Time_ResizeB, ~ResizeB, ~MigrationFromCurrentSource, ~NoLayer, ~TimeOfExpansion,
-  "source1", 100, 10, 40, 0, 0, 0, 0, 0, 0
+  "source1", 100, 10, 40, 0, 0, 0, 0, 0, 0,
+  "source2", 100, 10, 40, 0, 0, 0, 0, 0, 0
 )
 PopDensity <- tibble::new_tibble(PopDensity, nrow = nrow(PopDensity), class = "SPLATCHE3_PopDensity")
 
