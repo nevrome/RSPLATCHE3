@@ -131,4 +131,4 @@ SPLATCHE3_settings <- list(
 
 class(SPLATCHE3_settings) <- "SPLATCHE3_settings"
 
-write_settings(SPLATCHE3_settings, "test.txt")
+export(SPLATCHE3_settings, "test.txt")
