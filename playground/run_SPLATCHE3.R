@@ -36,27 +36,27 @@ Veg2mphase <- tibble::tribble(
   2,	0.03,	0.03,	0.03,	0.03,	"Monsoon or dry forest",
   3,	0.03,	0.03,	0.03,	0.03,	"Tropical woodland"
 )
-Veg2mphase <- tibble::new_tibble(Veg2mphase, nrow = nrow(Veg2mphase), class = "SPLATCHE3_Veg2mphase")
+Veg2mphase <- tibble::new_tibble(Veg2mphase, nrow = nrow(Veg2mphase), class = "SPLATCHE3_Veg2phase")
 
 #### SPLATCHE3_Veg2dyn ####
 Veg2Kdyn <- tibble::tribble(
-  ~time_of_change, ~file_name_corresponding_table, ~description,
-  1, "./datasets_1layer-ver3/veg2K_pop1_time_1.txt", "Time1",
-  200, "./datasets_1layer-ver3/veg2K_pop1_time_2.txt", "Time2"
+  ~time_of_change, ~corresponding_table, ~description,
+  1, Veg2Kphase, "Time1",
+  200, Veg2Kphase, "Time2"
 )
 Veg2Kdyn <- tibble::new_tibble(Veg2Kdyn, nrow = nrow(Veg2Kdyn), class = "SPLATCHE3_Veg2dyn")
 
 Veg2Fdyn <- tibble::tribble(
-  ~time_of_change, ~file_name_corresponding_table, ~description,
-  1, "./datasets_1layer-ver3/veg2F_pop1_time_1.txt", "Time1",
-  200, "./datasets_1layer-ver3/veg2F_pop1_time_2.txt", "Time2"
+  ~time_of_change, ~corresponding_table, ~description,
+  1, Veg2Fphase, "Time1",
+  200, Veg2Fphase, "Time2"
 )
 Veg2Fdyn <- tibble::new_tibble(Veg2Kdyn, nrow = nrow(Veg2Kdyn), class = "SPLATCHE3_Veg2dyn")
 
 Veg2mdyn <- tibble::tribble(
-  ~time_of_change, ~file_name_corresponding_table, ~description,
-  1, "./datasets_1layer-ver3/veg2m_pop1_time_1.txt", "Time1",
-  200, "./datasets_1layer-ver3/veg2m_pop1_time_2.txt", "Time2"
+  ~time_of_change, ~corresponding_table, ~description,
+  1, Veg2mphase, "Time1",
+  200, Veg2mphase, "Time2"
 )
 Veg2mdyn <- tibble::new_tibble(Veg2mdyn, nrow = nrow(Veg2mdyn), class = "SPLATCHE3_Veg2dyn")
 
@@ -79,7 +79,7 @@ Sample <- tibble::tribble(
   "sample5", 30, 0,	-30, 25,
   "sample6", 30, 0,	5, 40
 )
-Veg2mphase <- tibble::new_tibble(Sample, nrow = nrow(Sample), class = "SPLATCHE3_Sample")
+Sample <- tibble::new_tibble(Sample, nrow = nrow(Sample), class = "SPLATCHE3_Sample")
 
 
 

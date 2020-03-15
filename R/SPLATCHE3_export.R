@@ -21,14 +21,17 @@ export.default <- function(x, con = tempfile(), ...) {
 #' @export
 export.SPLATCHE3_settings <- function(x, con = tempfile(), ...) {
   
+  # export nested files and only keep a path to the file
   x_files_outsourced <- purrr::map(x, function(y) {
-    # check if the current object has a custom export function
+    # check if the current object has a custom export function (S3)
     if ("export" %in% unlist(strsplit(as.character(methods(class = class(y))), "\\.")) ) {
       export(y)
+    # deal with raster objects (S4)
     } else if (inherits(y, "RasterBrick") || inherits(y, "RasterStack") || inherits(y, "RasterLayer")) {
       outfile <- tempfile()
       raster::writeRaster(y, outfile, "ascii")
       return(outfile)
+    # for all simple parameters
     } else {
       y
     }
@@ -51,11 +54,44 @@ export.SPLATCHE3_settings <- function(x, con = tempfile(), ...) {
 export.SPLATCHE3_PopDensity <- function(x, con = tempfile(), ...) {
   
   outfile <- tempfile()
-  writeLines(as.character(nrow(x)), outfile)
+  write(as.character(nrow(x)), outfile)
   x_character <- purrr::map_chr(
     as.list(as.data.frame(t(x))), function(y) { paste(as.character(y), collapse = "\t") }
   )
-  writeLines(x_character, outfile)
+  write(x_character, outfile, append = T)
   return(outfile)
   
 }
+
+#' @rdname export
+#' @export
+export.SPLATCHE3_Veg2dyn <- function(x, con = tempfile(), ...) {
+  
+  outfile <- tempfile()
+  write(as.character(nrow(x)), outfile)
+  
+  x$corresponding_table <- sapply(x$corresponding_table, function(y) {
+    export(y)
+  })
+  
+  x_character <- purrr::map_chr(
+    as.list(as.data.frame(t(x))), function(y) { paste(as.character(y), collapse = " ") }
+  )
+  write(x_character, outfile, append = T)
+  return(outfile)
+  
+}
+
+#' @rdname export
+#' @export
+export.SPLATCHE3_Veg2phase <- function(x, con = tempfile(), ...) {
+  
+  outfile <- tempfile()
+  x_character <- purrr::map_chr(
+    as.list(as.data.frame(t(x))), function(y) { paste(as.character(y), collapse = "\t") }
+  )
+  write(x_character, outfile, append = T)
+  return(outfile)
+  
+}
+

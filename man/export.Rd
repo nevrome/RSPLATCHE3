@@ -5,6 +5,8 @@
 \alias{export.default}
 \alias{export.SPLATCHE3_settings}
 \alias{export.SPLATCHE3_PopDensity}
+\alias{export.SPLATCHE3_Veg2dyn}
+\alias{export.SPLATCHE3_Veg2phase}
 \title{write \strong{SPLATCHE3_settings} to file}
 \usage{
 export(x, con = tempfile(), ...)
@@ -14,6 +16,10 @@ export(x, con = tempfile(), ...)
 \method{export}{SPLATCHE3_settings}(x, con = tempfile(), ...)
 
 \method{export}{SPLATCHE3_PopDensity}(x, con = tempfile(), ...)
+
+\method{export}{SPLATCHE3_Veg2dyn}(x, con = tempfile(), ...)
+
+\method{export}{SPLATCHE3_Veg2phase}(x, con = tempfile(), ...)
 }
 \arguments{
 \item{x}{an object of class SPLATCHE3_settings}
