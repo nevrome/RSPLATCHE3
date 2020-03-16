@@ -95,3 +95,30 @@ export.SPLATCHE3_Veg2phase <- function(x, con = tempfile(), ...) {
   
 }
 
+#' @rdname export
+#' @export
+export.SPLATCHE3_ArrivalCell <- function(x, con = tempfile(), ...) {
+  
+  outfile <- tempfile()
+  write(as.character(nrow(x)), outfile)
+  x_character <- purrr::map_chr(
+    as.list(as.data.frame(t(x))), function(y) { paste(as.character(y), collapse = "\t") }
+  )
+  write(x_character, outfile, append = T)
+  return(outfile)
+  
+}
+
+#' @rdname export
+#' @export
+export.SPLATCHE3_Sample <- function(x, con = tempfile(), ...) {
+  
+  outfile <- tempfile()
+  write(as.character(nrow(x)), outfile)
+  x_character <- purrr::map_chr(
+    as.list(as.data.frame(t(x))), function(y) { paste(as.character(y), collapse = "\t") }
+  )
+  write(x_character, outfile, append = T)
+  return(outfile)
+  
+}
