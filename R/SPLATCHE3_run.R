@@ -7,11 +7,12 @@
 #' @return
 #' 
 #' @export
-run <- function(settings, output = file.path(tempdir(), "splatche3", "log"), exe = "~/splatche3/splatche3") {
+run <- function(settings, output = "~/test/splatche", exe = "~/splatche3/splatche3") {
+  
+  output <- normalizePath(output)
   
   # export settings file
-  settings_file <- tempfile()
-  export(SPLATCHE3_settings, settings_file)
+  settings_file <- export(settings, output)
   
   # run splatche in output dir to have all the results there
   cur_wd <- getwd()

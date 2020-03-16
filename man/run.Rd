@@ -4,11 +4,7 @@
 \alias{run}
 \title{run SPLATCHE3}
 \usage{
-run(
-  settings,
-  output = file.path(tempdir(), "splatche3"),
-  exe = "~/splatche3/splatche3"
-)
+run(settings, output = "~/test/splatche", exe = "~/splatche3/splatche3")
 }
 \arguments{
 \item{settings}{object of class SPLATCHE3_settings}
