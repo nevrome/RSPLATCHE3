@@ -5,8 +5,7 @@ PopDensity <- tibble::tribble(
   ~Pop_name, ~pop_size, ~Lat, ~Long, ~ResizeA, ~Time_ResizeB, ~ResizeB, ~MigrationFromCurrentSource, ~NoLayer, ~TimeOfExpansion,
   "source1", 100, 10, 40, 0, 0, 0, 0, 0, 0,
   "source2", 100, 10, 40, 0, 0, 0, 0, 0, 0
-)
-PopDensity <- tibble::new_tibble(PopDensity, nrow = nrow(PopDensity), class = "SPLATCHE3_PopDensity")
+) %>% as.SPLATCHE3_PopDensity()
 
 #### raster ####
 PresVegetation <- Hydro <- RoughnessTopo <- mMap <- raster::raster(system.file("external/rlogo.grd", package = "raster"))
@@ -127,8 +126,6 @@ SPLATCHE3_settings <- list(
   GenerateOutputMDensityASCII = 0,
   GenerateOutputOccupationASCII = 0,
   AllowShortIntForNumberOfIndividuals = 1
-)
-
-class(SPLATCHE3_settings) <- "SPLATCHE3_settings"
+) %>% as.SPLATCHE3_settings()
 
 export(SPLATCHE3_settings, "test.txt")

@@ -1,5 +1,5 @@
 #' @name export
-#' @title write \strong{SPLATCHE3_settings} to file
+#' @title write \strong{SPLATCHE3_...} to file
 #'
 #' @param x an object of class SPLATCHE3_settings
 #' @param con a connection object or a character string

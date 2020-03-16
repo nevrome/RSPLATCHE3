@@ -9,7 +9,7 @@
 \alias{export.SPLATCHE3_Veg2phase}
 \alias{export.SPLATCHE3_ArrivalCell}
 \alias{export.SPLATCHE3_Sample}
-\title{write \strong{SPLATCHE3_settings} to file}
+\title{write \strong{SPLATCHE3_...} to file}
 \usage{
 export(x, con = tempfile(), ...)
 
@@ -35,5 +35,5 @@ export(x, con = tempfile(), ...)
 \item{...}{ignored}
 }
 \description{
-write \strong{SPLATCHE3_settings} to file
+write \strong{SPLATCHE3_...} to file
 }
