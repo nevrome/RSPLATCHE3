@@ -7,7 +7,7 @@
 #' @return
 #' 
 #' @export
-run <- function(settings, output = tempdir(), exe = "~/splatche3/splatche3") {
+run <- function(settings, output = file.path(tempdir(), "splatche3"), exe = "~/splatche3/splatche3") {
   
   # export settings file
   settings_file <- tempfile()
@@ -15,6 +15,7 @@ run <- function(settings, output = tempdir(), exe = "~/splatche3/splatche3") {
   
   # run splatche in output dir to have all the results there
   cur_wd <- getwd()
+  dir.create(output)
   setwd(output)
   try(system(command = paste0(normalizePath(exe), " ", settings_file)))
   setwd(cur_wd)
