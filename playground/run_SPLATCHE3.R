@@ -76,7 +76,7 @@ Sample <- tibble::tribble(
 SPLATCHE3_settings <- list(
   PopDensityFile = PopDensity,# "./datasets_1layer-ver3/dens_init.txt",
   PresVegetationFile = PresVegetation,#"./datasets_1layer-ver3/ppveg.asc",
-  HydroFile = Hydro,#"./datasets_1layer-ver3/rivers.asc",
+  HydroFile = NA,#Hydro,#"./datasets_1layer-ver3/rivers.asc",
   RoughnessTopoFile = RoughnessTopo,#"./datasets_1layer-ver3/roughness.asc",
   mMapFile = mMap,#"./datasets_1layer-ver3/ppveg.asc",
   Veg2KFile = Veg2Kdyn,#"./datasets_1layer-ver3/dynamic_K.txt",

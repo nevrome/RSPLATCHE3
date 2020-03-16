@@ -37,10 +37,15 @@ export.SPLATCHE3_settings <- function(x, con = tempfile(), ...) {
     }
   })
   
-  x_string_vector <- purrr::map2_chr(names(x_files_outsourced), x_files_outsourced, function(x, y) {
+  # remove NA values
+  x_files_outsourced_without_NA <- x_files_outsourced[!is.na(x_files_outsourced)]
+  
+  # list to character vector
+  x_string_vector <- purrr::map2_chr(names(x_files_outsourced_without_NA), x_files_outsourced_without_NA, function(x, y) {
     paste0(x, "=", y)
   })
   
+  # write character vector to files
   base::writeLines(
     text = x_string_vector,
     con = con,
