@@ -19,5 +19,10 @@ run <- function(settings, output = tempdir(), exe = "~/splatche3/splatche3") {
   try(system(command = paste0(normalizePath(exe), " ", settings_file)))
   setwd(cur_wd)
   
+  # print logfile to R console
+  cat("\n-------------------------------------------------------\n")
+  cat(readLines(file.path(output, "SPLATCHE3.log")), sep = "\n")
+  cat("-------------------------------------------------------\n\n")
+  
   return(output)
 }

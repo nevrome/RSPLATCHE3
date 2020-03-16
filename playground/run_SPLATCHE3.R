@@ -122,4 +122,4 @@ SPLATCHE3_settings <- list(
 
 #### export ####
 
-export(SPLATCHE3_settings, "test.txt")
+run(SPLATCHE3_settings)
