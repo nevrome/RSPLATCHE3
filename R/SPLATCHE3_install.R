@@ -6,7 +6,7 @@
 #' @return character. Path to executable 
 #' 
 #' @export
-quick_setup <- function(path = "~/splatche3", os = "Linux") {
+install <- function(path = "~/splatche3", os = "Linux") {
   
   zip_file <- tempfile()
   switch(
