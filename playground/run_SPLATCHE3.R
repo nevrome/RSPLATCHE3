@@ -44,6 +44,16 @@ Sample <- tibble::tribble(
   "sample6", 30, 0,	5, 40
 ) %>% as.SPLATCHE3_Sample
 
+Genetic <- c(
+  "1 //Num chromosomes",
+  "#chromosome 1, //per Block:data type, number of loci, per generation recombination, MAF",
+  "1",
+  "SNP    1   0    0.03",
+  "#chromosome 2, //per Block:data type, number of loci, per generation recombination, MAF",
+  "1",
+  "SNP    1   0    0.03"
+) %>% as.SPLATCHE3_Genetic
+
 #### SPLATCHE3_settings ####
 SPLATCHE3_settings <- list(
   # starting population
@@ -65,7 +75,7 @@ SPLATCHE3_settings <- list(
   AllowSourcePopulationOverflow = NA,
   TauValue = NA,
   AncestralSize = NA,
-  ArrivalCellFile = ArrivalCell,#"./datasets_1layer-ver3/Arrival_cell.col",
+  ArrivalCellFile = ArrivalCell,
   # long distance dispersal (LDD)
   LDDProportion = NA,
   GammaShapeParamAllCells = NA,
@@ -79,8 +89,8 @@ SPLATCHE3_settings <- list(
   CoastFrictionChangeFactor = NA,
   CoastCarCapChangeFactor = NA,
   # genetic simulation
-  SampleFile = Sample,#"./datasets_1layer-ver3/GeneSamples.sam",
-  GeneticFile = "./datasets_1layer-ver3/genetic_data_SEQ.par",
+  SampleFile = Sample,
+  GeneticFile = Genetic,
   NumGeneticSimulations = 1,
   GenotypicData = 1,
   MaxNumGenerations = 10000,

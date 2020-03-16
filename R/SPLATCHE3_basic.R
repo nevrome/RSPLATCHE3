@@ -76,3 +76,16 @@ as.SPLATCHE3_Sample <- function(x, ...) {
 is.SPLATCHE3_Sample <- function(x, ...) {
   "SPLATCHE3_Sample" %in% class(x)
 }
+
+#' @rdname SPLATCHE3_basic
+#' @export
+as.SPLATCHE3_Genetic <- function(x, ...) {
+  class(x) <- c("SPLATCHE3_Genetic", class(x))
+  return(x)
+}
+
+#' @rdname SPLATCHE3_basic
+#' @export
+is.SPLATCHE3_Genetic <- function(x, ...) {
+  "SPLATCHE3_Genetic" %in% class(x)
+}

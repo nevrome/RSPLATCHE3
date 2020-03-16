@@ -14,6 +14,8 @@
 \alias{is.SPLATCHE3_ArrivalCell}
 \alias{as.SPLATCHE3_Sample}
 \alias{is.SPLATCHE3_Sample}
+\alias{as.SPLATCHE3_Genetic}
+\alias{is.SPLATCHE3_Genetic}
 \title{class functions}
 \usage{
 as.SPLATCHE3_settings(x, ...)
@@ -39,6 +41,10 @@ is.SPLATCHE3_ArrivalCell(x, ...)
 as.SPLATCHE3_Sample(x, ...)
 
 is.SPLATCHE3_Sample(x, ...)
+
+as.SPLATCHE3_Genetic(x, ...)
+
+is.SPLATCHE3_Genetic(x, ...)
 }
 \arguments{
 \item{x}{an object}

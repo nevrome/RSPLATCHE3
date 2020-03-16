@@ -9,6 +9,7 @@
 \alias{export.SPLATCHE3_Veg2phase}
 \alias{export.SPLATCHE3_ArrivalCell}
 \alias{export.SPLATCHE3_Sample}
+\alias{export.SPLATCHE3_Genetic}
 \title{write \strong{SPLATCHE3_...} to file}
 \usage{
 export(x, con = tempfile(), ...)
@@ -26,6 +27,8 @@ export(x, con = tempfile(), ...)
 \method{export}{SPLATCHE3_ArrivalCell}(x, con = tempfile(), ...)
 
 \method{export}{SPLATCHE3_Sample}(x, con = tempfile(), ...)
+
+\method{export}{SPLATCHE3_Genetic}(x, con = tempfile(), ...)
 }
 \arguments{
 \item{x}{an object of class SPLATCHE3_settings}
