@@ -1,3 +1,5 @@
+library(magrittr)
+
 exe <- "~/SPLATCHE3-Linux-64b"
 
 #### SPLATCHE3_PopDensity ####
@@ -8,7 +10,12 @@ PopDensity <- tibble::tribble(
 ) %>% as.SPLATCHE3_PopDensity()
 
 #### raster ####
-PresVegetation <- Hydro <- RoughnessTopo <- mMap <- raster::raster(system.file("external/rlogo.grd", package = "raster"))
+PresVegetation <- expand.grid(x = 1:50, y = 1:50) %>%
+  tibble::as_tibble() %>%
+  dplyr::mutate(
+    z = 1
+  ) %>%
+  raster::rasterFromXYZ(crs = "+proj=merc +datum=WGS84 +ellps=WGS84 +towgs84=0,0,0")
 
 #### SPLATCHE3_Veg2phase ####
 Veg2Kphase <- tibble::tribble(
@@ -18,39 +25,11 @@ Veg2Kphase <- tibble::tribble(
   3,	100,	"Tropical woodland"
 ) %>% as.SPLATCHE3_Veg2phase
 
-Veg2Fphase <- tibble::tribble(
-  ~category, ~value, ~description,
-  1,	0.8,	"Tropical rainforest",
-  2,	0.8,	"Monsoon or dry forest",
-  3,	0.8,	"Tropical woodland"
-) %>% as.SPLATCHE3_Veg2phase
-
-#### SPLATCHE3_Veg2mphase ####
-
-Veg2mphase <- tibble::tribble(
-  ~category, ~north, ~east, ~south, ~west, ~description,
-  1,	0.03,	0.03,	0.03,	0.03,	"Tropical rainforest",
-  2,	0.03,	0.03,	0.03,	0.03,	"Monsoon or dry forest",
-  3,	0.03,	0.03,	0.03,	0.03,	"Tropical woodland"
-) %>% as.SPLATCHE3_Veg2phase
-
 #### SPLATCHE3_Veg2dyn ####
 Veg2Kdyn <- tibble::tribble(
   ~time_of_change, ~corresponding_table, ~description,
   1, Veg2Kphase, "Time1",
   200, Veg2Kphase, "Time2"
-) %>% as.SPLATCHE3_Veg2dyn
-
-Veg2Fdyn <- tibble::tribble(
-  ~time_of_change, ~corresponding_table, ~description,
-  1, Veg2Fphase, "Time1",
-  200, Veg2Fphase, "Time2"
-) %>% as.SPLATCHE3_Veg2dyn
-
-Veg2mdyn <- tibble::tribble(
-  ~time_of_change, ~corresponding_table, ~description,
-  1, Veg2mphase, "Time1",
-  200, Veg2mphase, "Time2"
 ) %>% as.SPLATCHE3_Veg2dyn
 
 #### SPLATCHE3_ArrivalCell ####
@@ -74,14 +53,14 @@ Sample <- tibble::tribble(
 
 #### SPLATCHE3_settings ####
 SPLATCHE3_settings <- list(
-  PopDensityFile = PopDensity,# "./datasets_1layer-ver3/dens_init.txt",
-  PresVegetationFile = PresVegetation,#"./datasets_1layer-ver3/ppveg.asc",
-  HydroFile = NA,#Hydro,#"./datasets_1layer-ver3/rivers.asc",
-  RoughnessTopoFile = RoughnessTopo,#"./datasets_1layer-ver3/roughness.asc",
-  mMapFile = mMap,#"./datasets_1layer-ver3/ppveg.asc",
-  Veg2KFile = Veg2Kdyn,#"./datasets_1layer-ver3/dynamic_K.txt",
-  Veg2FFile = Veg2Fdyn,#"./datasets_1layer-ver3/dynamic_F.txt",
-  Veg2mFile = Veg2mdyn,#"./datasets_1layer-ver3/dynamic_m.txt",
+  PopDensityFile = PopDensity,
+  PresVegetationFile = PresVegetation,
+  HydroFile = NA,
+  RoughnessTopoFile = NA,
+  mMapFile = NA,
+  Veg2KFile = Veg2Kdyn,
+  Veg2FFile = NA,
+  Veg2mFile = NA,
   ChosenDemographicModel = 4,
   EndTime = 400,
   GenerationTime = 30,
