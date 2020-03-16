@@ -19,7 +19,7 @@ PresVegetation <- expand.grid(x = 1:50, y = 1:50) %>%
 #### SPLATCHE3_Veg2phase ####
 Veg2Kphase <- tibble::tribble(
   ~category, ~value, ~description,
-  1,	100,	"Land_without_special_properties"
+  0,	100,	"Land_without_special_properties"
 ) %>% as.SPLATCHE3_Veg2phase
 
 #### SPLATCHE3_Veg2dyn ####
@@ -37,21 +37,31 @@ ArrivalCell <- tibble::tribble(
 Sample <- tibble::tribble(
   ~Name, ~Size, ~Layer, ~Lat, ~Lon,
   "sample1", 30, 0,	20, 20,
-  "sample2", 30, 0,	20, 0,
-  "sample3", 30, 0,	0, 20,
-  "sample4", 30, 0, -20, 20,
-  "sample5", 30, 0,	-30, 25,
+  "sample2", 30, 0,	20, 10,
+  "sample3", 30, 0,	10, 20,
+  "sample4", 30, 0, 20, 20,
+  "sample5", 30, 0,	30, 25,
   "sample6", 30, 0,	5, 40
 ) %>% as.SPLATCHE3_Sample
 
+# Genetic <- c(
+#   "1 //Num chromosomes",
+#   "#chromosome 1, //per Block:data type, number of loci, per generation recombination, MAF",
+#   "1",
+#   "SNP    1   0    0.03",
+#   "#chromosome 2, //per Block:data type, number of loci, per generation recombination, MAF",
+#   "1",
+#   "SNP    1   0    0.03"
+# ) %>% as.SPLATCHE3_Genetic
+
 Genetic <- c(
-  "1 //Num chromosomes",
-  "#chromosome 1, //per Block:data type, number of loci, per generation recombination, MAF",
+  "2 //Num chromosomes",
+  "#chromosome 1, //per Block:data type, number of loci, per generation recombination, per site mutation rates and transition matrix: frequency A, frequency C, frequency G, frequency T, rate AC, rate AG, rate AT, rate CG, rate CT, rate GT",
   "1",
-  "SNP    1   0    0.03",
-  "#chromosome 2, //per Block:data type, number of loci, per generation recombination, MAF",
+  "DNA    100   0.0000    0.001   0.25   0.35   0.25   0.15   0.60   1.30   0.47   2.75   4.10   1.00",
+  "#chromosome 2, //per Block:data type, number of loci, per generation recombination, per site mutation rates and transition matrix: frequency A, frequency C, frequency G, frequency T, rate AC, rate AG, rate AT, rate CG, rate CT, rate GT",
   "1",
-  "SNP    1   0    0.03"
+  "DNA    100   0    0.0001   0.35   0.25   0.25   0.15   1.24   0.33   2.10   0.96   2.04   1.00"
 ) %>% as.SPLATCHE3_Genetic
 
 #### SPLATCHE3_settings ####
@@ -73,7 +83,7 @@ SPLATCHE3_settings <- list(
   GrowthRate = 0.4,
   MigrationRate = 0.4,
   AllowSourcePopulationOverflow = NA,
-  TauValue = NA,
+  TauValue = 10,
   AncestralSize = NA,
   ArrivalCellFile = ArrivalCell,
   # long distance dispersal (LDD)
