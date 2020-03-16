@@ -6,6 +6,14 @@
 \alias{is.SPLATCHE3_settings}
 \alias{as.SPLATCHE3_PopDensity}
 \alias{is.SPLATCHE3_PopDensity}
+\alias{as.SPLATCHE3_Veg2dyn}
+\alias{is.SPLATCHE3_Veg2dyn}
+\alias{as.SPLATCHE3_Veg2phase}
+\alias{is.SPLATCHE3_Veg2phase}
+\alias{as.SPLATCHE3_ArrivalCell}
+\alias{is.SPLATCHE3_ArrivalCell}
+\alias{as.SPLATCHE3_Sample}
+\alias{is.SPLATCHE3_Sample}
 \title{class functions}
 \usage{
 as.SPLATCHE3_settings(x, ...)
@@ -15,6 +23,22 @@ is.SPLATCHE3_settings(x, ...)
 as.SPLATCHE3_PopDensity(x, ...)
 
 is.SPLATCHE3_PopDensity(x, ...)
+
+as.SPLATCHE3_Veg2dyn(x, ...)
+
+is.SPLATCHE3_Veg2dyn(x, ...)
+
+as.SPLATCHE3_Veg2phase(x, ...)
+
+is.SPLATCHE3_Veg2phase(x, ...)
+
+as.SPLATCHE3_ArrivalCell(x, ...)
+
+is.SPLATCHE3_ArrivalCell(x, ...)
+
+as.SPLATCHE3_Sample(x, ...)
+
+is.SPLATCHE3_Sample(x, ...)
 }
 \arguments{
 \item{x}{an object}

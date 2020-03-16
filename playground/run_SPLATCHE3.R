@@ -16,16 +16,14 @@ Veg2Kphase <- tibble::tribble(
   1,	100,	"Tropical rainforest",
   2,	100,	"Monsoon or dry forest",
   3,	100,	"Tropical woodland"
-)
-Veg2Kphase <- tibble::new_tibble(Veg2Kphase, nrow = nrow(Veg2Kphase), class = "SPLATCHE3_Veg2phase")
+) %>% as.SPLATCHE3_Veg2phase
 
 Veg2Fphase <- tibble::tribble(
   ~category, ~value, ~description,
   1,	0.8,	"Tropical rainforest",
   2,	0.8,	"Monsoon or dry forest",
   3,	0.8,	"Tropical woodland"
-)
-Veg2Fphase <- tibble::new_tibble(Veg2Kphase, nrow = nrow(Veg2Kphase), class = "SPLATCHE3_Veg2phase")
+) %>% as.SPLATCHE3_Veg2phase
 
 #### SPLATCHE3_Veg2mphase ####
 
@@ -34,30 +32,26 @@ Veg2mphase <- tibble::tribble(
   1,	0.03,	0.03,	0.03,	0.03,	"Tropical rainforest",
   2,	0.03,	0.03,	0.03,	0.03,	"Monsoon or dry forest",
   3,	0.03,	0.03,	0.03,	0.03,	"Tropical woodland"
-)
-Veg2mphase <- tibble::new_tibble(Veg2mphase, nrow = nrow(Veg2mphase), class = "SPLATCHE3_Veg2phase")
+) %>% as.SPLATCHE3_Veg2phase
 
 #### SPLATCHE3_Veg2dyn ####
 Veg2Kdyn <- tibble::tribble(
   ~time_of_change, ~corresponding_table, ~description,
   1, Veg2Kphase, "Time1",
   200, Veg2Kphase, "Time2"
-)
-Veg2Kdyn <- tibble::new_tibble(Veg2Kdyn, nrow = nrow(Veg2Kdyn), class = "SPLATCHE3_Veg2dyn")
+) %>% as.SPLATCHE3_Veg2dyn
 
 Veg2Fdyn <- tibble::tribble(
   ~time_of_change, ~corresponding_table, ~description,
   1, Veg2Fphase, "Time1",
   200, Veg2Fphase, "Time2"
-)
-Veg2Fdyn <- tibble::new_tibble(Veg2Kdyn, nrow = nrow(Veg2Kdyn), class = "SPLATCHE3_Veg2dyn")
+) %>% as.SPLATCHE3_Veg2dyn
 
 Veg2mdyn <- tibble::tribble(
   ~time_of_change, ~corresponding_table, ~description,
   1, Veg2mphase, "Time1",
   200, Veg2mphase, "Time2"
-)
-Veg2mdyn <- tibble::new_tibble(Veg2mdyn, nrow = nrow(Veg2mdyn), class = "SPLATCHE3_Veg2dyn")
+) %>% as.SPLATCHE3_Veg2dyn
 
 #### SPLATCHE3_ArrivalCell ####
 ArrivalCell <- tibble::tribble(
@@ -65,8 +59,7 @@ ArrivalCell <- tibble::tribble(
   "samp1", 0, 12, 3,
   "samp2", 0, 33, 8,
   "samp3", 0, 14, 30
-)
-ArrivalCell <- tibble::new_tibble(ArrivalCell, nrow = nrow(ArrivalCell), class = "SPLATCHE3_ArrivalCell")
+) %>% as.SPLATCHE3_ArrivalCell
 
 #### SPLATCHE3_Sample ####
 Sample <- tibble::tribble(
@@ -77,11 +70,9 @@ Sample <- tibble::tribble(
   "sample4", 30, 0, -20, 20,
   "sample5", 30, 0,	-30, 25,
   "sample6", 30, 0,	5, 40
-)
-Sample <- tibble::new_tibble(Sample, nrow = nrow(Sample), class = "SPLATCHE3_Sample")
+) %>% as.SPLATCHE3_Sample
 
-
-
+#### SPLATCHE3_settings ####
 SPLATCHE3_settings <- list(
   PopDensityFile = PopDensity,# "./datasets_1layer-ver3/dens_init.txt",
   PresVegetationFile = PresVegetation,#"./datasets_1layer-ver3/ppveg.asc",
@@ -127,5 +118,9 @@ SPLATCHE3_settings <- list(
   GenerateOutputOccupationASCII = 0,
   AllowShortIntForNumberOfIndividuals = 1
 ) %>% as.SPLATCHE3_settings()
+
+
+
+#### export ####
 
 export(SPLATCHE3_settings, "test.txt")

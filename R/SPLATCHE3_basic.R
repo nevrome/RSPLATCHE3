@@ -28,3 +28,51 @@ as.SPLATCHE3_PopDensity <- function(x, ...) {
 is.SPLATCHE3_PopDensity <- function(x, ...) {
   "SPLATCHE3_PopDensity" %in% class(x)
 }
+
+#' @rdname SPLATCHE3_basic
+#' @export
+as.SPLATCHE3_Veg2dyn <- function(x, ...) {
+  return(tibble::new_tibble(x, nrow = nrow(x), class = "SPLATCHE3_Veg2dyn"))
+}
+
+#' @rdname SPLATCHE3_basic
+#' @export
+is.SPLATCHE3_Veg2dyn <- function(x, ...) {
+  "SPLATCHE3_Veg2dyn" %in% class(x)
+}
+
+#' @rdname SPLATCHE3_basic
+#' @export
+as.SPLATCHE3_Veg2phase <- function(x, ...) {
+  return(tibble::new_tibble(x, nrow = nrow(x), class = "SPLATCHE3_Veg2phase"))
+}
+
+#' @rdname SPLATCHE3_basic
+#' @export
+is.SPLATCHE3_Veg2phase <- function(x, ...) {
+  "SPLATCHE3_Veg2phase" %in% class(x)
+}
+
+#' @rdname SPLATCHE3_basic
+#' @export
+as.SPLATCHE3_ArrivalCell <- function(x, ...) {
+  return(tibble::new_tibble(x, nrow = nrow(x), class = "SPLATCHE3_ArrivalCell"))
+}
+
+#' @rdname SPLATCHE3_basic
+#' @export
+is.SPLATCHE3_ArrivalCell <- function(x, ...) {
+  "SPLATCHE3_ArrivalCell" %in% class(x)
+}
+
+#' @rdname SPLATCHE3_basic
+#' @export
+as.SPLATCHE3_Sample <- function(x, ...) {
+  return(tibble::new_tibble(x, nrow = nrow(x), class = "SPLATCHE3_Sample"))
+}
+
+#' @rdname SPLATCHE3_basic
+#' @export
+is.SPLATCHE3_Sample <- function(x, ...) {
+  "SPLATCHE3_Sample" %in% class(x)
+}
