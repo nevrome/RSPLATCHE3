@@ -118,7 +118,7 @@ export.SPLATCHE3_ArrivalCell <- function(x, con = tempfile(), ...) {
 #' @export
 export.SPLATCHE3_Sample <- function(x, con = tempfile(), ...) {
   
-  outfile <- tempfile()
+  outfile <- tempfile(fileext = ".sam")
   write(as.character(nrow(x)), outfile)
   x_character <- purrr::map_chr(
     as.list(as.data.frame(t(x))), function(y) { paste(as.character(y), collapse = "\t") }
