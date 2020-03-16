@@ -118,12 +118,12 @@ SPLATCHE3_settings <- list(
   Veg2m_P2_File = NA,
   PropFile = NA,
   # other outputs
-  GenerateOutputMigrationBMP = 0,
-  GenerateOutputMDensityBMP = 0,
-  GenerateOutputOccupationBMP = 0,
+  GenerateOutputMigrationBMP = 1,
+  GenerateOutputMDensityBMP = 1,
+  GenerateOutputOccupationBMP = 1,
   GenerateOutputMigrationASCII = 1,
-  GenerateOutputMDensityASCII = 0,
-  GenerateOutputOccupationASCII = 0,
+  GenerateOutputMDensityASCII = 1,
+  GenerateOutputOccupationASCII = 1,
   # other/technical parameters
   AllowShortIntForNumberOfIndividuals = 1
 ) %>% as.SPLATCHE3_settings()
