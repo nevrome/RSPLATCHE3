@@ -44,25 +44,25 @@ Sample <- tibble::tribble(
   "sample6", 30, 0,	5, 40
 ) %>% as.SPLATCHE3_Sample
 
-# Genetic <- c(
-#   "1 //Num chromosomes",
-#   "#chromosome 1, //per Block:data type, number of loci, per generation recombination, MAF",
-#   "1",
-#   "SNP    1   0    0.03",
-#   "#chromosome 2, //per Block:data type, number of loci, per generation recombination, MAF",
-#   "1",
-#   "SNP    1   0    0.03"
-# ) %>% as.SPLATCHE3_Genetic
-
 Genetic <- c(
-  "2 //Num chromosomes",
-  "#chromosome 1, //per Block:data type, number of loci, per generation recombination, per site mutation rates and transition matrix: frequency A, frequency C, frequency G, frequency T, rate AC, rate AG, rate AT, rate CG, rate CT, rate GT",
+  "1 //Num chromosomes",
+  "#chromosome 1, //per Block:data type, number of loci, per generation recombination, MAF",
   "1",
-  "DNA    100   0.0000    0.001   0.25   0.35   0.25   0.15   0.60   1.30   0.47   2.75   4.10   1.00",
-  "#chromosome 2, //per Block:data type, number of loci, per generation recombination, per site mutation rates and transition matrix: frequency A, frequency C, frequency G, frequency T, rate AC, rate AG, rate AT, rate CG, rate CT, rate GT",
+  "SNP    1   0    0.03",
+  "#chromosome 2, //per Block:data type, number of loci, per generation recombination, MAF",
   "1",
-  "DNA    100   0    0.0001   0.35   0.25   0.25   0.15   1.24   0.33   2.10   0.96   2.04   1.00"
+  "SNP    1   0    0.03"
 ) %>% as.SPLATCHE3_Genetic
+
+# Genetic <- c(
+#   "2 //Num chromosomes",
+#   "#chromosome 1, //per Block:data type, number of loci, per generation recombination, per site mutation rates and transition matrix: frequency A, frequency C, frequency G, frequency T, rate AC, rate AG, rate AT, rate CG, rate CT, rate GT",
+#   "1",
+#   "DNA    100   0.0000    0.001   0.25   0.35   0.25   0.15   0.60   1.30   0.47   2.75   4.10   1.00",
+#   "#chromosome 2, //per Block:data type, number of loci, per generation recombination, per site mutation rates and transition matrix: frequency A, frequency C, frequency G, frequency T, rate AC, rate AG, rate AT, rate CG, rate CT, rate GT",
+#   "1",
+#   "DNA    100   0    0.0001   0.35   0.25   0.25   0.15   1.24   0.33   2.10   0.96   2.04   1.00"
+# ) %>% as.SPLATCHE3_Genetic
 
 #### SPLATCHE3_settings ####
 SPLATCHE3_settings <- list(
@@ -121,7 +121,7 @@ SPLATCHE3_settings <- list(
   GenerateOutputMigrationBMP = 0,
   GenerateOutputMDensityBMP = 0,
   GenerateOutputOccupationBMP = 0,
-  GenerateOutputMigrationASCII = 0,
+  GenerateOutputMigrationASCII = 1,
   GenerateOutputMDensityASCII = 0,
   GenerateOutputOccupationASCII = 0,
   # other/technical parameters
@@ -132,4 +132,4 @@ SPLATCHE3_settings <- list(
 
 #### export ####
 
-run(SPLATCHE3_settings)
+run(SPLATCHE3_settings, "~/test/splatche")
