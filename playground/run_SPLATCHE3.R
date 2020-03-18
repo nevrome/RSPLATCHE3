@@ -132,4 +132,4 @@ SPLATCHE3_settings <- list(
 
 #### export ####
 
-run(SPLATCHE3_settings, "~/test/splatche")
+run(SPLATCHE3_settings, tmpdir = "~/test/splatche")

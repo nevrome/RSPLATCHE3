@@ -4,12 +4,12 @@
 \alias{run}
 \title{run SPLATCHE3}
 \usage{
-run(settings, output = "~/test/splatche", exe = "~/splatche3/splatche3")
+run(settings, tmpdir = "~/test/splatche", exe = "~/splatche3/splatche3")
 }
 \arguments{
 \item{settings}{object of class SPLATCHE3_settings}
 
-\item{output}{character. Path to output directory}
+\item{tmpdir}{character. Path to output_dir directory}
 
 \item{exe}{character. Path to SPLATCHE3 executable}
 }

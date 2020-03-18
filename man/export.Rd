@@ -12,26 +12,28 @@
 \alias{export.SPLATCHE3_Genetic}
 \title{write \strong{SPLATCHE3_...} to file}
 \usage{
-export(x, tmpdir, ...)
+export(x, filename, tmpdir, ...)
 
-\method{export}{default}(x, tmpdir, ...)
+\method{export}{default}(x, filename, tmpdir, ...)
 
-\method{export}{SPLATCHE3_settings}(x, tmpdir, ...)
+\method{export}{SPLATCHE3_settings}(x, filename = "settings.txt", tmpdir, ...)
 
-\method{export}{SPLATCHE3_PopDensity}(x, tmpdir, ...)
+\method{export}{SPLATCHE3_PopDensity}(x, filename, tmpdir, ...)
 
-\method{export}{SPLATCHE3_Veg2dyn}(x, tmpdir, ...)
+\method{export}{SPLATCHE3_Veg2dyn}(x, filename, tmpdir, ...)
 
-\method{export}{SPLATCHE3_Veg2phase}(x, tmpdir, ...)
+\method{export}{SPLATCHE3_Veg2phase}(x, filename, tmpdir, ...)
 
-\method{export}{SPLATCHE3_ArrivalCell}(x, tmpdir, ...)
+\method{export}{SPLATCHE3_ArrivalCell}(x, filename, tmpdir, ...)
 
-\method{export}{SPLATCHE3_Sample}(x, tmpdir, ...)
+\method{export}{SPLATCHE3_Sample}(x, filename, tmpdir, ...)
 
-\method{export}{SPLATCHE3_Genetic}(x, tmpdir, ...)
+\method{export}{SPLATCHE3_Genetic}(x, filename, tmpdir, ...)
 }
 \arguments{
 \item{x}{an object of class SPLATCHE3_settings}
+
+\item{filename}{export file name}
 
 \item{tmpdir}{a non-empty character vector giving a directory name}
 
