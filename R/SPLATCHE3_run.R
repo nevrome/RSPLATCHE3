@@ -7,7 +7,7 @@
 #' @return
 #' 
 #' @export
-run <- function(settings, tmpdir = "~/test/splatche", exe = "~/splatche3/splatche3") {
+run <- function(settings, tmpdir = "~/test/splatche", exe = "~/software/splatche3/splatche3") {
   
   output_dir <- normalizePath(tmpdir)
   

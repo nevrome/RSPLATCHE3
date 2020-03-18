@@ -4,7 +4,7 @@
 \alias{install}
 \title{quick setup of SPLATCHE3}
 \usage{
-install(path = "~/splatche3", os = "Linux")
+install(path = "~/software/splatche3", os = "Linux")
 }
 \arguments{
 \item{path}{character. Where the executable should be stored}
