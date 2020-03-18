@@ -16,7 +16,9 @@ run <- function(settings, tmpdir = "~/test/splatche", exe = "~/splatche3/splatch
   
   # run splatche in output_dir dir to have all the results there
   cur_wd <- getwd()
-  dir.create(output_dir, recursive = T)
+  if (!dir.exists(output_dir)) {
+    dir.create(output_dir, recursive = T)
+  }
   setwd(output_dir)
   try(system(command = paste0(normalizePath(exe), " ", settings_file)))
   setwd(cur_wd)
