@@ -30,7 +30,7 @@ export.SPLATCHE3_settings <- function(x, filename = "settings.txt", tmpdir, ...)
     # deal with raster objects (S4)
     } else if (inherits(y, "RasterBrick") || inherits(y, "RasterStack") || inherits(y, "RasterLayer")) {
       outfile <- file.path(tmpdir, paste0(name_y, ".asc"))
-      raster::writeRaster(y, outfile, "ascii")
+      raster::writeRaster(y, outfile, "ascii", overwrite = T)
       return(outfile)
     # for all simple parameters
     } else {
