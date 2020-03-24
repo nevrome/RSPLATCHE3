@@ -1,12 +1,12 @@
 #' quick setup of SPLATCHE3
 #'
 #' @param path character. Where the executable should be stored
-#' @param os character. Operating system (Linux, Windows, Mac)
+#' @param os character. Operating system ("Linux", "Windows", "Mac")
 #' 
 #' @return character. Path to executable 
 #' 
 #' @export
-install <- function(path = "~/software/splatche3", os = "Linux") {
+install <- function(path = "~/splatche3", os = "Linux") {
   
   zip_file <- tempfile()
   switch(

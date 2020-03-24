@@ -1,18 +1,16 @@
 #' run SPLATCHE3
 #'
 #' @param settings object of class SPLATCHE3_settings
-#' @param tmpdir character. Path to output_dir directory
+#' @param outdir character. Path to output directory
 #' @param exe character. Path to SPLATCHE3 executable
 #'
-#' @return
-#' 
 #' @export
-run <- function(settings, tmpdir = "~/test/splatche", exe = "~/software/splatche3/splatche3") {
+run <- function(settings, outdir = "~/test/splatche", exe = "~/splatche3/splatche3") {
   
-  output_dir <- normalizePath(tmpdir)
+  output_dir <- normalizePath(outdir)
   
   # export settings file
-  settings_file <- export(settings, tmpdir = output_dir)
+  settings_file <- export(settings, outdir = output_dir)
   
   # run splatche in output_dir dir to have all the results there
   cur_wd <- getwd()

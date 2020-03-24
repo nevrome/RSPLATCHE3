@@ -1,7 +1,6 @@
-#' @name SPLATCHE3_basic
-#' @title class functions
-#'
-#' @param x an object
+#' SPLATCH3 settings objects
+#' 
+#' @param x object
 #' @param ... ignored
 #'
 #' @rdname SPLATCHE3_basic

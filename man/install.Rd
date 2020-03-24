@@ -4,12 +4,12 @@
 \alias{install}
 \title{quick setup of SPLATCHE3}
 \usage{
-install(path = "~/software/splatche3", os = "Linux")
+install(path = "~/splatche3", os = "Linux")
 }
 \arguments{
 \item{path}{character. Where the executable should be stored}
 
-\item{os}{character. Operating system (Linux, Windows, Mac)}
+\item{os}{character. Operating system ("Linux", "Windows", "Mac")}
 }
 \value{
 character. Path to executable
